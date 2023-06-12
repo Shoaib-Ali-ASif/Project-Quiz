@@ -45,6 +45,11 @@ body {
     
 }
 
+#btn-restart{
+    text-align: center;
+    margin: 0 auto;
+}
+
 #live-evaluation-section {
     background-color: white;
 }

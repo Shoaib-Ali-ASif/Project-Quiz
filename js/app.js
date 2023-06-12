@@ -1,102 +1,103 @@
 const questions = [
-    {
-      question: "What is HTML?",
-      a: "HyperText Markup Language",
-      b: "Styling Language",
-      c: "Programming Language",
-      d: "None",
-      correct: "a",
-    },
-    {
-      question: "What is CSS?",
-      a: "HyperText Markup Language",
-      b: "Styling Language",
-      c: "Client Side Scripting",
-      d: "Server Side Scripting",
-      correct: "b",
-    },
-    {
-      question: "What is PHP?",
-      a: "Client Side Scripting",
-      b: "Styling Language",
-      c: "Server Side Scripting",
-      d: "None",
-      correct: "c",
-    },
-  ];
-  
-  let currentIndex = 0;
-  let score = 0;
-  
-  loadQuestion(currentIndex);
-  
-  const btnSubmitElement = document.querySelector("#btn-submit");
-  const btnRestartElement = document.querySelector("#btn-restart");
-  const scoreElement = document.querySelector("#score");
-  
-  
-  btnSubmitElement.addEventListener("click", function () {
-    let result = validateInputs();
-    if (result) {
-      const currentQuestion = questions[currentIndex];
-      if (currentQuestion.correct == result) {
-        score++;
-      } else {
-        //   console.log("Incorrect");
-      }
-  
-      currentIndex++;
-      if (currentIndex < questions.length) {
-        error.innerText = "";
-        loadQuestion(currentIndex);
-      } else {
-        console.log("Restart the quiz and score is " + score);
-        
-        btnSubmitElement.style.display = "none";
-        btnRestartElement.style.display = "block";
-        scoreElement.innerText = "Your score is " + score;
-      }
-      uncheckInput(result);
+  {
+    question: "What is HTML?",
+    a: "HyperText Markup Language",
+    b: "Styling Language",
+    c: "Programming Language",
+    d: "None",
+    correct: "a",
+  },
+  {
+    question: "What is CSS?",
+    a: "HyperText Markup Language",
+    b: "Styling Language",
+    c: "Client Side Scripting",
+    d: "Server Side Scripting",
+    correct: "b",
+  },
+  {
+    question: "What is PHP?",
+    a: "Client Side Scripting",
+    b: "Styling Language",
+    c: "Server Side Scripting",
+    d: "None",
+    correct: "c",
+  },
+];
+
+let currentIndex = 0;
+let score = 0;
+
+loadQuestion(currentIndex);
+
+const btnSubmitElement = document.querySelector("#btn-submit");
+const btnRestartElement = document.querySelector("#btn-restart");
+const scoreElement = document.querySelector("#score");
+const mainElement = document.querySelector("main");
+
+btnSubmitElement.addEventListener("click", function () {
+  let result = validateInputs();
+  if (result) {
+    const currentQuestion = questions[currentIndex];
+    if (currentQuestion.correct == result) {
+      score++;
     } else {
-      error.innerText = "Select atleast 1!";
+      //   console.log("Incorrect");
+    }
+
+    currentIndex++;
+    if (currentIndex < questions.length) {
+      error.innerText = "";
+      loadQuestion(currentIndex);
+      
+    } else { 
+     console.log("Restart the quiz and score is " + score);
+    
+      btnSubmitElement.style.display = "none";
+      btnRestartElement.style.display = "block";
+      scoreElement.innerText = "Your score is " + score;
+    }
+    uncheckInput(result);
+  } else {
+    error.innerText = "Select atleast 1!";
+  }
+});
+
+function loadQuestion(index) {
+  const currentQuestion = questions[index];
+
+  const questionTextElement = document.querySelector("#question-text");
+  const aTextElement = document.querySelector("#a_text");
+  const bTextElement = document.querySelector("#b_text");
+  const cTextElement = document.querySelector("#c_text");
+  const dTextElement = document.querySelector("#d_text");
+
+  questionTextElement.innerText = currentQuestion.question;
+  aTextElement.innerText = currentQuestion.a;
+  bTextElement.innerText = currentQuestion.b;
+  cTextElement.innerText = currentQuestion.c;
+  dTextElement.innerText = currentQuestion.d;
+}
+
+function validateInputs() {
+  const choicesElements = document.querySelectorAll(".answer");
+  //   const choicesElements = document.querySelectorAll('input[name="choice"]');
+
+  let result = false;
+  choicesElements.forEach(function (element) {
+    if (element.checked) {
+      result = element.id;
     }
   });
+  return result;
+}
+
+function uncheckInput(id) {
+  const choiceElement = document.querySelector("#" + id);
+  choiceElement.checked = false;
+}
+
+btnRestartElement.addEventListener("click", function () {
+  location.reload();
   
-  function loadQuestion(index) {
-    const currentQuestion = questions[index];
-  
-    const questionTextElement = document.querySelector("#question-text");
-    const aTextElement = document.querySelector("#a_text");
-    const bTextElement = document.querySelector("#b_text");
-    const cTextElement = document.querySelector("#c_text");
-    const dTextElement = document.querySelector("#d_text");
-  
-    questionTextElement.innerText = currentQuestion.question;
-    aTextElement.innerText = currentQuestion.a;
-    bTextElement.innerText = currentQuestion.b;
-    cTextElement.innerText = currentQuestion.c;
-    dTextElement.innerText = currentQuestion.d;
-  }
-  
-  function validateInputs() {
-    const choicesElements = document.querySelectorAll(".answer");
-    //   const choicesElements = document.querySelectorAll('input[name="choice"]');
-  
-    let result = false;
-    choicesElements.forEach(function (element) {
-      if (element.checked) {
-        result = element.id;
-      }
-    });
-    return result;
-  }
-  
-  function uncheckInput(id) {
-    const choiceElement = document.querySelector("#" + id);
-    choiceElement.checked = false;
-  }
-  
-  btnRestartElement.addEventListener("click", function () {
-    location.reload();
-  });
-  
+});
