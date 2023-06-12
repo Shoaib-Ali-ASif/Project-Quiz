@@ -33,7 +33,7 @@ loadQuestion(currentIndex);
 const btnSubmitElement = document.querySelector("#btn-submit");
 const btnRestartElement = document.querySelector("#btn-restart");
 const scoreElement = document.querySelector("#score");
-const mainElement = document.querySelector("main");
+const mainElement = document.getElementById("main");
 
 
 btnSubmitElement.addEventListener("click", function () {
@@ -53,7 +53,8 @@ btnSubmitElement.addEventListener("click", function () {
       
     } else { 
      console.log("Restart the quiz and score is " + score);
-     document.getElementById("main").style.display = "none";
+
+      mainElement.style.display = "none";
       btnSubmitElement.style.display = "none";
       btnRestartElement.style.display = "block"; 
       scoreElement.innerText = "Your score is " + score;
