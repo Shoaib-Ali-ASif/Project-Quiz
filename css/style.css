@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: dodgerblue;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* grid-template-columns: 3fr 1fr; */
+}
+
+/* #container {
+    width: 100%;
+} */
+
+#quiz-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#question-text {
+    text-align: center;
+}
+
+#options {
+    margin: 20px 0px;
+}
+
+#buttons {
+    text-align: center;
+}
+
+.btn {
+    background-color: dodgerblue;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+}
+
+#live-evaluation-section {
+    background-color: white;
+}
+
+.display {
+    display: none;
+}
+
+.red-text{
+    color: red;
+}
