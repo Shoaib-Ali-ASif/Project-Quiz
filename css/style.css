@@ -22,9 +22,17 @@ body {
 #main{
     display: flex;
     flex-direction: column;
-    font-size: xx-large;
+    font-size: 50px;
 }
 
+input[type="radio"] {
+    transform: scale(2);
+  }
+  .radio-container{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
 #question-text {
     text-align: center;
 }
