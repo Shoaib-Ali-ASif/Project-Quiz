@@ -7,20 +7,22 @@
 body {
     background-color: dodgerblue;
     height: 100vh;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
-    /* grid-template-columns: 3fr 1fr; */
+    
+    
 }
-
-/* #container {
-    width: 100%;
-} */
 
 #quiz-section {
     background-color: white;
-    padding: 30px;
+    padding: 100px;
     border-radius: 10px;
+}
+#main{
+    display: flex;
+    flex-direction: column;
+    font-size: xx-large;
 }
 
 #question-text {
@@ -37,12 +39,16 @@ body {
 
 .btn {
     background-color: dodgerblue;
-    padding: 10px;
+    padding: 20px;
+    width: 200px;
     border-radius: 5px;
     color: white;
     border: none;
     cursor: pointer;
     
+}
+.btn:hover{
+    background-color: rgb(100, 156, 212);
 }
 
 #btn-restart{

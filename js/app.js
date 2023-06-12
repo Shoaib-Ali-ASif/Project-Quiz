@@ -35,6 +35,7 @@ const btnRestartElement = document.querySelector("#btn-restart");
 const scoreElement = document.querySelector("#score");
 const mainElement = document.querySelector("main");
 
+
 btnSubmitElement.addEventListener("click", function () {
   let result = validateInputs();
   if (result) {
@@ -52,9 +53,9 @@ btnSubmitElement.addEventListener("click", function () {
       
     } else { 
      console.log("Restart the quiz and score is " + score);
-    
+     document.getElementById("main").style.display = "none";
       btnSubmitElement.style.display = "none";
-      btnRestartElement.style.display = "block";
+      btnRestartElement.style.display = "block"; 
       scoreElement.innerText = "Your score is " + score;
     }
     uncheckInput(result);
@@ -99,5 +100,5 @@ function uncheckInput(id) {
 
 btnRestartElement.addEventListener("click", function () {
   location.reload();
-  
+
 });
