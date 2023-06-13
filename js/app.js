@@ -23,6 +23,14 @@ const questions = [
     d: "None",
     correct: "c",
   },
+  {
+    question: "What is Node js?",
+    a: "Client Side Scripting",
+    b: "Front end framework",
+    c: "Server Side Scripting",
+    d: "Back end FrameWork",
+    correct: "d",
+  },
 ];
 
 let currentIndex = 0;
