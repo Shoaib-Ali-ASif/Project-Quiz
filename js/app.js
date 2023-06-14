@@ -16,6 +16,14 @@ const questions = [
     correct: "b",
   },
   {
+    question: "What is JavaScript primarily used for?",
+    a: "Styling web pages",
+    b: "Creating interactive web elements",
+    c: "Managing databases",
+    d: "None",
+    correct: "b",
+  },
+  {
     question: "What is PHP?",
     a: "Client Side Scripting",
     b: "Styling Language",
@@ -24,17 +32,27 @@ const questions = [
     correct: "c",
   },
   {
-    question: "What is Node js?",
-    a: "Client Side Scripting",
-    b: "Front end framework",
-    c: "Server Side Scripting",
-    d: "Back end FrameWork",
-    correct: "d",
+    question: "Which of the following is true about Python?",
+    a: "Python is a high-level programming language.",
+    b: "Python is primarily used for web development.",
+    c: "Python is a markup language.",
+    d: "None",
+    correct: "a",
   },
+  {
+    question: "What does HTTP stand for?",
+    a: "HyperText Transfer Protocol",
+    b: "Hyperlink Text Technology",
+    c: "HyperText Terminal Program",
+    d: "None",
+    correct: "a",
+  },
+  
 ];
 
 let currentIndex = 0;
 let score = 0;
+
 
 loadQuestion(currentIndex);
 
@@ -42,7 +60,6 @@ const btnSubmitElement = document.querySelector("#btn-submit");
 const btnRestartElement = document.querySelector("#btn-restart");
 const scoreElement = document.querySelector("#score");
 const mainElement = document.getElementById("main");
-
 
 btnSubmitElement.addEventListener("click", function () {
   let result = validateInputs();
@@ -58,13 +75,12 @@ btnSubmitElement.addEventListener("click", function () {
     if (currentIndex < questions.length) {
       error.innerText = "";
       loadQuestion(currentIndex);
-      
-    } else { 
-     console.log("Restart the quiz and score is " + score);
+    } else {
+      console.log("Restart the quiz and score is " + score);
 
       mainElement.style.display = "none";
       btnSubmitElement.style.display = "none";
-      btnRestartElement.style.display = "block"; 
+      btnRestartElement.style.display = "block";
       scoreElement.innerText = "Your score is " + score;
     }
     uncheckInput(result);
@@ -109,5 +125,4 @@ function uncheckInput(id) {
 
 btnRestartElement.addEventListener("click", function () {
   location.reload();
-
 });
